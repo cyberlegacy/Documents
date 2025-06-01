@@ -43,9 +43,10 @@ def main():
 
 def write_file(file_path, content):
     try:
-        # Ensure parent directory exists (the prompt said you created them,
-        # but this makes the script more robust)
-        os.makedirs(os.path.dirname(file_path), exist_ok=True)
+        # Only create directories if there's actually a directory to create
+        dir_path = os.path.dirname(file_path)
+        if dir_path:  # Only if dir_path is not empty
+            os.makedirs(dir_path, exist_ok=True)
         
         with open(file_path, 'w', encoding='utf-8') as wf:
             wf.write(content)

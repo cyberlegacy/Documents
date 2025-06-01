@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Kyoto University Japanese Class{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'japanese_class_app/css/style.css' %}">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="{% url 'japanese_class_app:index' %}">Kyoto University Japanese Language Program</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'japanese_class_app:index' %}">Home</a></li>
+                    <li><a href="{% url 'japanese_class_app:about' %}">About Us</a></li>
+                    <li><a href="{% url 'japanese_class_app:levels' %}">Class Levels</a></li>
+                    <li><a href="{% url 'japanese_class_app:level_assessment' %}">Level Assessment</a></li>
+                    <li><a href="{% url 'japanese_class_app:signup' %}">Sign Up</a></li>
+                    <li><a href="{% url 'japanese_class_app:contact' %}">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© {% now "Y" %} Kyoto University Japanese Language Program. All rights reserved.</p>
+            <p>This is a fictional website for demonstration purposes.</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'japanese_class_app/js/main.js' %}"></script>
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

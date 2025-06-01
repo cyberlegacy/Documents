@@ -1,0 +1,54 @@
+{% extends "japanese_class_app/layout.html" %}
+{% load static %}
+
+{% block title %}Level Assessment - Kyoto University Japanese Class{% endblock %}
+
+{% block content %}
+<section>
+    <h2>How to Assess Your Japanese Level</h2>
+    <p>Choosing the right class level is crucial for a positive and effective learning experience. Here’s how you can determine the best fit for you:</p>
+
+    <h3>1. Self-Assessment based on JLPT Levels</h3>
+    <p>Our class levels are generally aligned with the Japanese Language Proficiency Test (JLPT). Review the descriptions on our <a href="{% url 'japanese_class_app:levels' %}">Class Levels</a> page.
+        <ul>
+            <li><strong>N5 (Beginner):</strong> Can understand some basic Japanese. Recognizes hiragana, katakana, and basic kanji.
+            <li><strong>N4 (Elementary):</strong> Can understand basic Japanese used in everyday situations.
+            <li><strong>N3 (Intermediate):</strong> Can understand Japanese used in everyday situations to a certain degree.
+            <li><strong>N2 (Upper-Intermediate):</strong> Can understand Japanese used in everyday situations and in a variety of circumstances to a certain degree.
+            <li><strong>N1 (Advanced):</strong> Can understand Japanese used in a broad range of circumstances.
+        </ul>
+    </p>
+
+    <h3>2. Review Your Previous Study</h3>
+    <p>Consider the following:
+        <ul>
+            <li><strong>Textbooks Used:</strong> Textbooks like Genki I & II, Minna no Nihongo I & II, Tobira, etc., often correspond to specific levels.
+                <ul>
+                    <li>Genki I completion is roughly N5.</li>
+                    <li>Genki II completion is roughly N4.</li>
+                    <li>Intermediate textbooks (e.g., Tobira, An Integrated Approach to Intermediate Japanese) often target N3-N2.</li>
+                </ul>
+            </li>
+            <li><strong>Hours of Study:</strong> While highly variable, a rough guideline:
+                <ul>
+                    <li>N5: ~150-250 hours</li>
+                    <li>N4: ~300-500 hours</li>
+                    <li>N3: ~450-700 hours</li>
+                    <li>N2: ~600-1000 hours</li>
+                    <li>N1: ~900-1500+ hours</li>
+                </ul>
+            </li>
+            <li><strong>Time Spent in Japan / Using Japanese:</strong> Practical experience can significantly impact your conversational ability.</li>
+        </ul>
+    </p>
+
+    <h3>3. Online Placement Tests (General Guidance)</h3>
+    <p>Several websites offer free Japanese placement tests. While not definitive, they can provide a general idea of your level. Search for "Japanese language placement test" online. (Note: Kyoto University does not endorse specific third-party tests for official placement).</p>
+
+    <h3>4. Consultation</h3>
+    <p>If you are still unsure, please indicate "Unsure / Need Assessment" on the sign-up form, or <a href="{% url 'japanese_class_app:contact' %}">contact us</a>. We may ask you a few questions or arrange a brief informal chat to help determine the most suitable class for you.</p>
+    <p>During the first week of classes, instructors will also assess if students are in the appropriate level and can suggest a transfer if necessary.</p>
+
+    <p>Our goal is to place you in a class where you will be challenged but not overwhelmed, ensuring a productive and enjoyable learning experience.</p>
+</section>
+{% endblock %}
