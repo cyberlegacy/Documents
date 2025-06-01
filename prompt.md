@@ -399,4 +399,4 @@ Before completing, ensure:
 * CORS is configured.
 * The `README.md` is comprehensive for the full-stack Django application.
 
-Please generate the full-stack Django application as described.
+Please generate the full-stack Django application as described.Good luck.
