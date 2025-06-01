@@ -1,0 +1,106 @@
+{% extends "japanese_class_app/layout.html" %}
+{% load static %}
+
+{% block title %}Sign Up - Kyoto University Japanese Class{% endblock %}
+
+{% block content %}
+<section class="signup-section">
+    <h2>Request to Join a Japanese Class</h2>
+    <p>Please fill out the form below to express your interest in joining one of our Japanese classes. We will review your request and get back to you with more information regarding placement and schedules.</p>
+
+    <form id="signup-form" method="POST" action="{% url 'japanese_class_app:api_signup' %}">
+        {% csrf_token %} {# Important for Django's CSRF protection #}
+        
+        <div class="form-field">
+            {{ form.full_name.label_tag }}
+            {{ form.full_name }}
+            {{ form.full_name.errors }}
+        </div>
+
+        <div class="form-field">
+            {{ form.email.label_tag }}
+            {{ form.email }}
+            {{ form.email.errors }}
+        </div>
+
+        <div class="form-field">
+            {{ form.affiliation.label_tag }}
+            {{ form.affiliation }}
+            {{ form.affiliation.errors }}
+        </div>
+        
+        <div class="form-field" id="other_affiliation_details_field">
+            {# This field could be shown/hidden by JS based on 'affiliation' selection #}
+            {{ form.other_affiliation_details.label_tag }}
+            {{ form.other_affiliation_details }}
+            {{ form.other_affiliation_details.errors }}
+        </div>
+
+        <div class="form-field">
+            {{ form.self_assessed_level.label_tag }}
+            {{ form.self_assessed_level }}
+            {{ form.self_assessed_level.errors }}
+            <small>Not sure? Check our <a href="{% url 'japanese_class_app:level_assessment' %}" target="_blank">Level Assessment Guide</a>.</small>
+        </div>
+
+        <div class="form-field">
+            {{ form.preferred_class_level.label_tag }}
+            {{ form.preferred_class_level }}
+            {{ form.preferred_class_level.errors }}
+        </div>
+        
+        <div class="form-field">
+            {{ form.previous_experience.label_tag }}
+            {{ form.previous_experience }}
+            {{ form.previous_experience.errors }}
+            <small>e.g., Textbooks used, years of study, previous schools.</small>
+        </div>
+
+        <div class="form-field">
+            {{ form.learning_goals.label_tag }}
+            {{ form.learning_goals }}
+            {{ form.learning_goals.errors }}
+            <small>e.g., Prepare for JLPT, daily conversation, academic Japanese.</small>
+        </div>
+
+        <div class="form-field">
+            {{ form.questions_comments.label_tag }}
+            {{ form.questions_comments }}
+            {{ form.questions_comments.errors }}
+        </div>
+
+        <button type="submit" class="cta-button">Submit Request</button>
+    </form>
+
+    <div id="form-feedback" class="form-feedback"></div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    // Simple JS to show/hide other_affiliation_details based on selection
+    // More robust handling might be needed for form resets, etc.
+    document.addEventListener('DOMContentLoaded', function() {
+        const affiliationSelect = document.getElementById('id_affiliation');
+        const otherAffiliationField = document.getElementById('other_affiliation_details_field');
+        const otherAffiliationInput = document.getElementById('id_other_affiliation_details');
+
+        function toggleOtherAffiliationField() {
+            if (affiliationSelect.value === 'other') {
+                otherAffiliationField.style.display = 'block';
+            } else {
+                otherAffiliationField.style.display = 'none';
+                // Optionally clear the input when hidden
+                // otherAffiliationInput.value = ''; 
+            }
+        }
+
+        if (affiliationSelect && otherAffiliationField) {
+            // Initial check
+            toggleOtherAffiliationField();
+            // Add event listener
+            affiliationSelect.addEventListener('change', toggleOtherAffiliationField);
+        }
+    });
+</script>
+{% endblock %}

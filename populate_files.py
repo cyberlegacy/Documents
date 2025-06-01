@@ -45,7 +45,9 @@ def write_file(file_path, content):
     try:
         # Ensure parent directory exists (the prompt said you created them,
         # but this makes the script more robust)
-        os.makedirs(os.path.dirname(file_path), exist_ok=True)
+        dir_path= os.path.dirname(file_path)
+        if(dir_path):
+            os.makedirs(os.path.dirname(file_path), exist_ok=True)
         
         with open(file_path, 'w', encoding='utf-8') as wf:
             wf.write(content)
@@ -66,11 +68,11 @@ if __name__ == "__main__":
     # If you `cd kyoto_japanese_class_website_django` first:
     PROJECT_ROOT = "." # Assuming the script and all_code.txt are in the project root
 
-    if PROJECT_ROOT == ".":
-        if not os.path.exists("manage.py"): # A simple check
-             print("Warning: Are you sure you are in the Django project root?")
-             print("The script expects to be run from within 'kyoto_japanese_class_website_django'")
-             print("or have PROJECT_ROOT set to 'kyoto_japanese_class_website_django' if run from its parent.")
+    #if PROJECT_ROOT == ".":
+    #    if not os.path.exists("manage.py"): # A simple check
+    #         print("Warning: Are you sure you are in the Django project root?")
+    ##         print("The script expects to be run from within 'kyoto_japanese_class_website_django'")
+    #         print("or have PROJECT_ROOT set to 'kyoto_japanese_class_website_django' if run from its parent.")
 
 
     main()

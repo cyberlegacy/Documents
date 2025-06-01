@@ -1,0 +1,38 @@
+{% extends "japanese_class_app/layout.html" %}
+{% load static %}
+
+{% block title %}Welcome - Kyoto University Japanese Class{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h2>Welcome to the Kyoto University Japanese Language Program!</h2>
+    <p>ようこそ！京都大学の日本語クラスへ。</p>
+    <p>Immerse yourself in the Japanese language and culture in the heart of Kyoto. Our classes are designed for students and researchers affiliated with Kyoto University, as well as members of the wider community interested in learning Japanese.</p>
+    <a href="{% url 'japanese_class_app:signup' %}" class="cta-button">Sign Up for a Class</a>
+</section>
+
+<section class="features">
+    <h3>Why Choose Our Program?</h3>
+    <div class="feature-item">
+        <h4>Experienced Instructors</h4>
+        <p>Learn from qualified and passionate teachers dedicated to your success.</p>
+    </div>
+    <div class="feature-item">
+        <h4>Comprehensive Curriculum</h4>
+        <p>Covering all aspects of the language: speaking, listening, reading, and writing.</p>
+    </div>
+    <div class="feature-item">
+        <h4>Cultural Immersion</h4>
+        <p>Experience Japanese culture firsthand through activities and events in historic Kyoto.</p>
+    </div>
+    <div class="feature-item">
+        <h4>Supportive Community</h4>
+        <p>Join a diverse group of learners from around the world.</p>
+    </div>
+</section>
+
+<section>
+    <h3>Explore Our Offerings</h3>
+    <p>Discover the right <a href="{% url 'japanese_class_app:levels' %}">class level</a> for you, learn about our <a href="{% url 'japanese_class_app:about' %}">teaching philosophy</a>, or find out how to <a href="{% url 'japanese_class_app:level_assessment' %}">assess your current level</a>.</p>
+</section>
+{% endblock %}

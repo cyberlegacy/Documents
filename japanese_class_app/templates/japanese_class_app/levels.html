@@ -1,0 +1,43 @@
+{% extends "japanese_class_app/layout.html" %}
+{% load static %}
+
+{% block title %}Class Levels - Kyoto University Japanese Class{% endblock %}
+
+{% block content %}
+<section>
+    <h2>Japanese Class Levels</h2>
+    <p>We offer a range of Japanese language classes to suit various proficiency levels, from absolute beginners to advanced learners. Our levels are generally aligned with the Japanese Language Proficiency Test (JLPT) standards.</p>
+
+    <div class="level-description">
+        <h3>Beginner (N5 Equivalent)</h3>
+        <p><strong>Focus:</strong> Introduction to basic Japanese grammar, hiragana, katakana, and essential kanji. Simple daily conversations, greetings, self-introductions, and understanding basic phrases.</p>
+        <p><strong>Prerequisites:</strong> None. Perfect for those with no prior Japanese experience.</p>
+    </div>
+
+    <div class="level-description">
+        <h3>Elementary (N4 Equivalent)</h3>
+        <p><strong>Focus:</strong> Expanding vocabulary and grammatical structures. Ability to understand and participate in simple everyday conversations. Reading and writing short, simple sentences and paragraphs.</p>
+        <p><strong>Prerequisites:</strong> Completion of Beginner level or equivalent knowledge (approx. 150 hours of study).</p>
+    </div>
+
+    <div class="level-description">
+        <h3>Intermediate (N3 Equivalent)</h3>
+        <p><strong>Focus:</strong> Developing fluency in everyday situations. Understanding main points of clear standard input on familiar matters. Ability to deal with most situations likely to arise whilst travelling in an area where the language is spoken. Producing simple connected text on topics which are familiar or of personal interest.</p>
+        <p><strong>Prerequisites:</strong> Completion of Elementary level or equivalent knowledge (approx. 300 hours of study).</p>
+    </div>
+
+    <div class="level-description">
+        <h3>Upper-Intermediate (N2 Equivalent)</h3>
+        <p><strong>Focus:</strong> Understanding a wide range of demanding, longer texts, and recognizing implicit meaning. Expressing oneself fluently and spontaneously without much obvious searching for expressions. Using language flexibly and effectively for social, academic and professional purposes.</p>
+        <p><strong>Prerequisites:</strong> Completion of Intermediate level or equivalent knowledge (approx. 600 hours of study).</p>
+    </div>
+
+    <div class="level-description">
+        <h3>Advanced (N1 Equivalent)</h3>
+        <p><strong>Focus:</strong> Understanding with ease virtually everything heard or read. Summarizing information from different spoken and written sources, reconstructing arguments and accounts in a coherent presentation. Expressing oneself spontaneously, very fluently and precisely, differentiating finer shades of meaning even in more complex situations.</p>
+        <p><strong>Prerequisites:</strong> Completion of Upper-Intermediate level or equivalent knowledge (approx. 900 hours of study).</p>
+    </div>
+
+    <p>Not sure about your level? Visit our <a href="{% url 'japanese_class_app:level_assessment' %}">Level Assessment</a> page for guidance or contact us.</p>
+</section>
+{% endblock %}
